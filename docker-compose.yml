@@ -1,0 +1,16 @@
+services:
+  mys3:
+    image: gmazzitelli/s3
+    container_name: mys3
+    privileged: true
+    devices:
+      - /dev/fuse
+    cap_add:
+      - SYS_ADMIN
+    env_file:
+      - .env
+#    environment:
+#      - UID=${UID}
+#      - GID=${GID}
+    volumes:
+      - /mnt/s3:/home/root/s3:shared
